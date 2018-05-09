@@ -9,19 +9,15 @@
 
 
      <!-- Firebase Reference -->
-     <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+     <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
     <!-- Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-    <!-- JavaScript -->
-    <script type="text/javascript" src="assets/javascript/trainschedule.js"></script>
-
     <!-- Moment.js Reference -->
     <script src="http://momentjs.com/downloads/moment.js"></script>  
     <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
-
   </head>
 
   <body>
@@ -80,11 +76,11 @@
                 </div>
                 <div class="form-group">
                   <label for="first-train-time-input">First Train Time(HH/mm)</label>
-                  <input class="form-control" id="first-train-time-input" type="time">
+                  <input class="form-control" id="first-train-time-input" type="number">
                 </div>
                 <div class="form-group">
                   <label for="frequency-input">Frequency(mins)</label>
-                  <input class="form-control" id="frequency-input" type="time">
+                  <input class="form-control" id="frequency-input" type="number">
                 </div>
                 <button class="btn btn-primary" id="add-train-btn" type="submit">Submit</button>
               </form>
@@ -100,5 +96,6 @@
     </div>
 
   </body>
-
+  <!-- JavaScript -->
+  <script type="text/javascript" src="assets/javascript/trainschedule.js"></script>
 </html>

@@ -2,12 +2,12 @@
 
 // 1. Initialize Firebase
 var config = {
-  apiKey: "AIzaSyAJ0yvxjdtkyzyBR3EZONRP2LrwvFpWowg",
-  authDomain: "train-scheduler-19467.firebaseapp.com",
-  databaseURL: "https://train-scheduler-19467.firebaseio.com",
-  projectId: "train-scheduler-19467",
-  storageBucket: "",
-  messagingSenderId: "142963230637"
+    apiKey: "AIzaSyAJ0yvxjdtkyzyBR3EZONRP2LrwvFpWowg",
+    authDomain: "train-scheduler-19467.firebaseapp.com",
+    databaseURL: "https://train-scheduler-19467.firebaseio.com",
+    projectId: "train-scheduler-19467",
+    storageBucket: "train-scheduler-19467.appspot.com",
+    messagingSenderId: "142963230637"
 };
 
 firebase.initializeApp(config);
@@ -29,28 +29,28 @@ $("#add-train-btn").on("click", function(event) {
     $("#first-train-time-input")
       .val()
       .trim(),
-    "DD/MM/YY"
-  ).format("X");
+    "HH:mm"
+  ).format();
   var trainFrequency = $("#frequency-input")
     .val()
     .trim();
 
   // Creates local "temporary" object for holding train data
   var newTrain = {
-    trainName: trainName,
-    trainDestination: trainDestination,
-    firstTrainTime: firstTrainTime,
-    trainFrequency: trainFrequency
+    name: trainName,
+    destination: trainDestination,
+    trainTime: firstTrainTime,
+    frequency: trainFrequency
   };
 
   // Uploads train data to the database
   database.ref().push(newTrain);
 
   // Logs everything to console
-  console.log(newTrain.trainName);
-  console.log(newTrain.trainDestination);
-  console.log(newTrain.firstTrainTime);
-  console.log(newTrain.trainFrequency);
+  console.log(newTrain.name);
+  console.log(newTrain.destination);
+  console.log(newTrain.trainTime);
+  console.log(newTrain.frequency);
 
   // Alert
   alert("train successfully added");
@@ -67,10 +67,10 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(childSnapshot.val());
 
   // Store everything into a variable.
-  var trainName = childSnapshot.val().trainName;
-  var destination = childSnapshot.val().trainDestination;
-  var trainTime = childSnapshot.val().firstTrainTime;
-  var frequency = childSnapshot.val().trainFrequency;
+  var trainName = childSnapshot.val().name;
+  var trainDestination = childSnapshot.val().destination;
+  var firstTrainTime = childSnapshot.val().trainTime;
+  var trainFrequency = childSnapshot.val().frequency;
 
   // train Info
   console.log(trainName);
@@ -79,14 +79,14 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(trainFrequency);
 
   // Prettify the train start
-  var trainTimePretty = moment.unix(trainTime).format("MM/DD/YY");
-  
+//   var trainTimePretty = moment.unix(firstTrainTime).format("");
+//   console.log(trainTimePretty);
 
   // Assumptions
-  var tFrequency = 3;
+  var tFrequency = 5;
 
   // Time is 3:30 AM
-  var firstTime = "03:30";
+  var firstTime = "06:00";
 
   // First Time (pushed back 1 year to make sure it comes before current time)
   var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
@@ -117,7 +117,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
     "<tr><td>" +
       trainName +
       "</td><td>" +
-      destination +
+      trainDestination +
       "</td><td>" +
       tFrequency +
       "</td><td>" +
