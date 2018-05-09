@@ -79,8 +79,8 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(trainFrequency);
 
   // Prettify the train start
-//   var trainTimePretty = moment.unix(firstTrainTime).format("");
-//   console.log(trainTimePretty);
+  var trainTimePretty = moment.unix(firstTrainTime).format("HH:mm");
+  console.log(trainTimePretty);
 
   // Assumptions
   var tFrequency = 5;
