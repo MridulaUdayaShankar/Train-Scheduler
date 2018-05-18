@@ -15,9 +15,9 @@ When adding trains, administrators should be able to submit the following:
 * Users from many different machines must be able to view same train times.
 
 ### Installing
-Visual Studio/Atom/Sublime Code Editor
+* Visual Studio/Atom/Sublime Code Editor
 
-Chrome/Mozilla/Safari/Opera Browser
+* Chrome/Mozilla/Safari/Opera Browser
 
 ### License
 This project is licensed under the MIT License - see the LICENSE.md file for details
