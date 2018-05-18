@@ -1,4 +1,4 @@
-# Project Title: Train-Scheduler
+# Train-Scheduler
 
 ## Getting Started
 This is a project to create a Train Scheduler to Add new trains and display next train's details using momentJS for calculation.
